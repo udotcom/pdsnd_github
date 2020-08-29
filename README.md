@@ -25,3 +25,5 @@ There is a chance that any time user is asked for input, they may not enter what
 Thanks to city of [Washington DC](https://www.capitalbikeshare.com/system-data), [New York City](https://www.citibikenyc.com/system-data), and [Chicago](https://data.cityofchicago.org/Transportation/Divvy-Trips/fg6s-gzvg)
 
 
+![BikeShare](https://media.wired.com/photos/59328fcc5c4fbd732b5538f4/master/w_582,c_limit/bike-share-660.jpg "Credit:TAESTELL/FLICKR")
+
