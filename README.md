@@ -12,6 +12,9 @@ The _bikeshare.py_ file is set up as a script that takes in raw input to reate a
  * (If they choose month) Which month - January, February, March, April, May, or June?
  * (if they choose day) Which day- Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday?
 
+The answers to the questions above determine the city and timeframe on which the data analysis happens. 
+
+There is a chance that any time user is asked for input, they may not enter what you expect, so the code is capable of handling unexpected input without failing. 
 
 ### Files used
  - _washington.csv_
