@@ -28,7 +28,8 @@ def get_filters():
                 break
             else:
                 print("Sorry, {} is not a valid entry in the menu.".format(city_entry))   
-        except:
+        except Exception as e:
+            print("Oops!",e.__class__, "occured.")
             continue
                 
     city = city_entry                        # accept input and copy to variable city
