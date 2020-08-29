@@ -20,7 +20,6 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while True:
         try:
             city_entry = input("Enter city name from the following list of choices:\n\t * Chicago \n\t * New York City \n\t * Washington DC \n")
@@ -35,7 +34,6 @@ def get_filters():
     city = city_entry                        # accept input and copy to variable city
     print("\n ---- City ", city)
 
-    # TO DO: get user input for month (all, january, february, ... , june)
     while True:
         try:
             mo_entry = input("Enter the month for which you want to see the data or enter 'all' for full time period. Data is available from January to June:\n >> ")
@@ -49,7 +47,6 @@ def get_filters():
     print("\n--- Month  ", month)
 
 
-    # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
          try:
              day_entry = input("Enter the day of week for which you want to see the data e.g. 'Tuesday'' or enter 'all' for the entire week\n")
@@ -94,21 +91,17 @@ def load_data(city, month, day):
         # use the index of the months list to get the corresponding int
         #months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = [ months.index(mo) for mo in months if month==mo]   # matches alpa month name to list and looks up its index, returns list with single element
-        print("\n --- DEBUG --- Found Month:",month, month[0], month[0]+1) # add one to make account for zero-index e.g Jan = 0+1
         month=month[0]+1   # updated variable to make it consitent and simple
         # filter by month to create the new dataframe
         df = (df[df['month']==month])
-        print("\n --- DEBUG ---filtered for month ---\n",df.head(2))
 
     # filter by day of week if applicable
     if day != 'all':                # dont filter if day of week is all
         # filter by day of week to create the new dataframe
         #days_of_wk = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
         day = [ days_of_wk.index(dy) for dy in days_of_wk if day==dy] # list comprehension with condition
-        print("\n -- DEBUG -- Found Day: ", day, day[0], day[0]+1)
         day = day[0]                        # to avoid length mismatch since evaulation statement above returned a list with single element rather than a single element
         df=(df[df['day_of_week']==day])
-        print("\n --- DEBUG ---filtered for DOW ---\n",df.head(5))
     
        
 
@@ -155,7 +148,6 @@ def station_stats(df):
 
     # TO DO: display most frequent combination of start station and end station trip
     df['Start_End'] = df['Start Station'] + " --> "+ df['End Station']
-    print("\n\t   -- DEUBG - start and end combo -- \n", df['Start_End'])
     popular_trip = df['Start_End'].mode()[0]
     print("\nMost common trip: {}".format(popular_trip))
 
@@ -170,7 +162,6 @@ def trip_duration_stats(df):
     start_time = time.time()
 
     # TO DO: display total travel time
-    print("\t --- DEBUG -- Travel Duration --- \n",df['Trip Duration'].head(4))
     totsec=df['Trip Duration'].sum()
     min, sec = divmod(totsec, 60) 
     hour, min = divmod(min, 60) 
